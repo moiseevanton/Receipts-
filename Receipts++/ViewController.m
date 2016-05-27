@@ -32,6 +32,7 @@
         Tag *businessTag = [NSEntityDescription insertNewObjectForEntityForName:@"Tag" inManagedObjectContext:self.moc];
         businessTag.tagName = @"Business";
         [self.moc save:nil];
+        self.tags = @[personalTag, familyTag, businessTag];
     }
     
     [self.tableView reloadData];
@@ -115,5 +116,11 @@
     NSArray *fetchedTags = [self.moc executeFetchRequest:fetchRequest error:&error];
     self.tags = fetchedTags;
 }
+
+//-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    Tag *tag = self.tags[indexPath.section];
+//    
+//}
 
 @end
